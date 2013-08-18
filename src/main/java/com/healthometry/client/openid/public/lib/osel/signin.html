@@ -14,7 +14,7 @@
 	function requestLogin(event) {
 		openid.submit();
 		// elevate login request to GWT (requestLogin has been setup during OpenIdSelector init stage)
-// 		window.parent.requestLogin(provider);
+		window.parent.requestLogin(document.getElementById('openid_identifier').value);
 		// prevent form submission;
 		event.preventDefault();
 		return false;
