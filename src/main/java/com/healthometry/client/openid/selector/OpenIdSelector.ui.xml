@@ -1,13 +1,15 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
    <ui:style>
-      .signinFrame {
+      .loginFrame {
          width: 100%;
-         min-height: 350px;
+         height: 100%;
          border: none;
       }
    </ui:style>
    <g:HTMLPanel>
-      <g:Frame addStyleNames='{style.signinFrame}' url='lib/osel/signin.html'></g:Frame>
+      <!-- An <iframe> is used here to preserve the styling openid-selector imposes on elements. -->
+      <!-- (see signin.html for parts of implementation) -->
+      <g:Frame addStyleNames='{style.loginFrame}' ui:field='loginFrame'></g:Frame>
    </g:HTMLPanel>
 </ui:UiBinder> 

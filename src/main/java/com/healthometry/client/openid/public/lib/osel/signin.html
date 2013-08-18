@@ -9,14 +9,22 @@
 <script type="text/javascript">
 	window.onload = function() {
 		openid.init('openid_identifier');
-// 		openid.setDemoMode(true); //Stops form submission for client javascript-only test purposes
 	};
+
+	function requestLogin(event) {
+		openid.submit();
+		// elevate login request to GWT (requestLogin has been setup during OpenIdSelector init stage)
+// 		window.parent.requestLogin(provider);
+		// prevent form submission;
+		event.preventDefault();
+		return false;
+	}
 </script>
 </head>
 
 <body>
  <!-- Simple OpenID Selector -->
- <form action="/healthometry/svc/auth" method="get" id="openid_form">
+ <form name="openid_form" id="openid_form" action="" onsubmit="requestLogin(event); return false;">
   <input type="hidden" name="action" value="verify" /> <input id="openid_form_submit" type="submit"
    style="display: none;" />
   <fieldset>

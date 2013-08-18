@@ -66,7 +66,7 @@ var openid = {
 				openid_btns.appendChild(box);
 			}
 		}
-		document.getElementById('openid_form').onsubmit = this.submit;
+//		document.getElementById('openid_form').onsubmit = this.submit;
 		var box_id = this.readCookie();
 		if (box_id) {
 			this.signin(box_id, true);
