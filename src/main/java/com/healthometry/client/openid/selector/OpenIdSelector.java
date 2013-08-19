@@ -7,17 +7,17 @@ package com.healthometry.client.openid.selector;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Frame;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.event.shared.HandlerRegistration;
 
 /**
  * 
  * @author Boris Brudnoy
  * 
  */
-public class OpenIdSelector extends Composite {
+public class OpenIdSelector extends Composite implements HasLoginRequestedHandlers {
 
 
    @UiField
@@ -35,8 +35,14 @@ public class OpenIdSelector extends Composite {
    }
 
 
+   @Override
+   public HandlerRegistration addLoginRequestedHandler(LoginRequestedEvent.Handler handler) {
+      return addHandler(handler, LoginRequestedEvent.getType());
+   }
+
+
    private void requestLogin(String provider) {
-      Window.alert(provider);
+      fireEvent(new LoginRequestedEvent(provider));
    }
 
 
