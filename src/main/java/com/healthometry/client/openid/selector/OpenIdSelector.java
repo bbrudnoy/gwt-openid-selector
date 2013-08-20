@@ -35,6 +35,11 @@ public class OpenIdSelector extends Composite implements HasLoginRequestedHandle
    }
 
 
+   /*
+    * TODO: Once GWT 2.6 is out and issue https://code.google.com/p/google-web-toolkit/issues/detail?id=7079 is fixed,
+    * the return type could become the new com.google.web.bindery.event.shared.HandlerRegistration instead of the
+    * currently used legacy one.
+    */
    @Override
    public HandlerRegistration addLoginRequestedHandler(LoginRequestedEvent.Handler handler) {
       return addHandler(handler, LoginRequestedEvent.getType());
